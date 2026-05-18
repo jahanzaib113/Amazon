@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Clone</title>
+  <link rel="stylesheet" href="./Style.css">
+  <script defer src="./script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="logo border" onclick="showMessage('Amazon Logo Clicked')">
+        <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png">
+      </div>
+
+      <div class="location border" onclick="showMessage('Delivering to Pakistan')">
+        <i class="fa-solid fa-location-dot"></i>
+
+        <div>
+          <p>Deliver to</p>
+          <h5>Pakistan</h5>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-box">
+
+        <select>
+          <option>All</option>
+        </select>
+
+        <input type="text" placeholder="Search Amazon">
+
+        <button onclick="searchAlert()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <!-- Right -->
+      <div class="nav-right">
+
+        <div class="lang border" onclick="showMessage('English Language Selected')">
+          <img src="./flg.jpg">
+          <span>EN</span>
+        </div>
+
+        <div class="border" onclick="showMessage('Sign In Button Clicked')">
+          <p>Hello, sign in</p>
+          <h4>Account & Lists</h4>
+        </div>
+
+        <div class="border" onclick="showMessage('Orders Opened')">
+          <p>Returns</p>
+          <h4>& Orders</h4>
+        </div>
+
+        <div class="cart border" onclick="cartAlert()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Cart
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Navbar -->
+    <div class="bottom-nav">
+
+      <div class="bottom-links border" onclick="showMessage('All Menu Clicked')">
+        <i class="fa-solid fa-bars"></i>
+        All
+      </div>
+
+      <div class="bottom-links border" onclick="showMessage('Today Deals Opened')">
+        Today's Deals
+      </div>
+
+      <div class="bottom-links border" onclick="showMessage('Gift Cards Opened')">
+        Gift Cards
+      </div>
+
+      <div class="bottom-links border" onclick="showMessage('Sell Page Opened')">
+        Sell
+      </div>
+
+      <div class="bottom-links border" onclick="showMessage('Registry Opened')">
+        Registry
+      </div>
+
+      <div class="bottom-links border" onclick="showMessage('Prime Video Opened')">
+        Prime Video
+      </div>
+
+      <div class="bottom-links border" onclick="showMessage('Customer Service Opened')">
+        Customer Service
+      </div>
+
+    </div>
+
+  </header>
+  
+  <!-- Hero Section -->
+
+  <section class="hero">
+
+    <button class="slide-btn left" onclick="prevSlide()">
+      ❮
+    </button>
+
+    <img id="slideImage" src="./all1.jpg" alt="">
+    <button class="slide-btn right" onclick="nextSlide()">
+      ❯
+    </button>
+
+  </section>
+
+  <!-- Cards -->
+
+  <section class="cards">
+
+    <!-- Card 1 -->
+    <div class="card animate">
+      <h2>Get your game on</h2>
+
+      <img src="./gam1.jpg" alt="">
+      <button onclick="cartAlert()">Add to Cart</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card animate">
+      <h2>New home arrivals under $50</h2>
+
+      <div class="mini-grid">
+
+        <div>
+          <img src="./kic1.jpg" alt="">
+          <p>Kitchen</p>
+        </div>
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>Home</p>
+        </div>
+
+        <div>
+          <img src="./all1.jpg" alt="">
+          <p>Decor</p>
+        </div>
+
+        <div>
+          <img src="./gam1.jpg" alt="">
+          <p>Bedding</p>
+        </div>
+
+      </div>
+
+      <button onclick="cartAlert()">Add to Cart</button>
+
+    </div>
+
+
+    <!-- Card 3 -->
+
+    <div class="card animate">
+      <h2>Shop Fashion for less</h2>
+
+      <div class="mini-grid">
+
+        <div>
+          <img src="./f1.jpg" alt="">
+          <p>Jeans</p>
+        </div>
+
+        <div>
+          <img src="./f2.jpg" alt="">
+          <p>Tops</p>
+        </div>
+
+        <div>
+          <img src="./f3.jpg" alt="">
+          <p>Dresses</p>
+        </div>
+
+        <div>
+          <img src="./f4.jpg" alt="">
+          <p>Shoes</p>
+        </div>
+
+      </div>
+
+      <button onclick="cartAlert()">Add to Cart</button>
+
+    </div>
+    <!-- Card 4 -->
+
+    <div class="card animate">
+      <h2>Top categories in Kitchen appliances</h2>
+
+      <img src="./kic2.jpg" alt="">
+      <button onclick="cartAlert()">Add to Cart</button>
+    </div>
+
+  </section>
+  <!-- Popup -->
+
+  <div id="popupBox">
+    Welcome to Amazon Clone
+  </div>
+
+  <!-- Dialog Box -->
+
+  <dialog id="customDialog">
+
+    <div class="dialog-content">
+
+      <h2>🛒 Amazon Clone</h2>
+
+      <p id="dialogText">
+        Welcome To Amazon Website
+      </p>
+
+      <button onclick="closeDialog()">
+        OK
+      </button>
+
+    </div>
+
+  </dialog>
+  <!-- BEST SELLER SECTION -->
+
+  <section class="product-slider-section">
+
+    <h2>International top sellers in Home</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider1')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider1">
+
+        <img src="./jet1.png" alt="">
+        <img src="./toy1.jpg" alt="">
+        <img src="./jet5.jpg" alt="">
+        <img src="./toy3.jpg" alt="">
+        <img src="./f6.jpg" alt="">
+        <img src="./toy2.jpg" alt="">
+        <img src="./jet2.png" alt="">
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider1')">
+        ❯
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- SECOND SECTION -->
+
+  <section class="product-slider-section">
+
+    <h2>Best Sellers in Clothing, Shoes & Jewelry</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider2')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider2">
+        <img src="./f6.jpg" alt="">
+        <img src="./toy2.jpg" alt="">
+        <img src="./jet2.png" alt="">
+        <img src="./jet1.png" alt="">
+        <img src="./toy1.jpg" alt="">
+        <img src="./jet5.jpg" alt="">
+        <img src="./toy3.jpg" alt="">
+
+
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider2')">
+        ❯
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- CATEGORY CARDS SECTION -->
+
+  <section class="category-section">
+
+    <!-- CARD 1 -->
+
+    <div class="category-card">
+
+      <h2>Gaming merchandise</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="jet1.png" alt="">
+          <p>Apparel</p>
+        </div>
+
+        <div>
+          <img src="./toy1.jpg" alt="">
+          <p>Hats</p>
+        </div>
+
+        <div>
+          <img src="./jet2.png" alt="">
+          <p>Action figures</p>
+        </div>
+
+        <div>
+          <img src="./jet5.jpg" alt="">
+          <p>Mugs</p>
+        </div>
+
+      </div>
+
+      <a href="#">See more</a>
+
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="category-card">
+
+      <h2>Most-loved travel essentials</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./gam1.jpg" alt="">
+          <p>Backpacks</p>
+        </div>
+
+        <div>
+          <img src="./f2.jpg" alt="">
+          <p>Suitcases</p>
+        </div>
+
+        <div>
+          <img src="./f3.jpg" alt="">
+          <p>Accessories</p>
+        </div>
+
+        <div>
+          <img src="./f4.jpg" alt="">
+          <p>Handbags</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="category-card">
+
+      <h2>Have more fun with family</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./f5.jpg" alt="">
+          <p>Outdoor Play Sets</p>
+        </div>
+
+        <div>
+          <img src="./f6.jpg" alt="">
+          <p>Learning Toys</p>
+        </div>
+
+        <div>
+          <img src="./kic1.jpg" alt="">
+          <p>Action Figures</p>
+        </div>
+
+        <div>
+          <img src="./toy3.jpg" alt="">
+          <p>Pretend Play Toys</p>
+        </div>
+
+      </div>
+
+      <a href="#">See more</a>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="category-card">
+
+      <h2>Level up your beauty routine</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="all1.jpg" alt="">
+          <p>Makeup</p>
+        </div>
+
+        <div>
+          <img src="./flg.jpg" alt="">
+          <p>Brushes</p>
+        </div>
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>Sponges</p>
+        </div>
+
+        <div>
+          <img src="./kic2.jpg" alt="">
+          <p>Mirrors</p>
+        </div>
+
+      </div>
+
+      <a href="#">See more</a>
+
+    </div>
+
+  </section>
+
+  <section class="product-slider-section">
+
+    <h2>Top picks for Pakistan</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider1')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider1">
+
+        <img src="./jet1.png" alt="">
+        <img src="./toy1.jpg" alt="">
+        <img src="./jet5.jpg" alt="">
+        <img src="./toy3.jpg" alt="">
+        <img src="./f6.jpg" alt="">
+        <img src="./toy2.jpg" alt="">
+        <img src="./jet2.png" alt="">
+        <img src="./toy3.jpg" alt="">
+        <img src="./f6.jpg" alt="">
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider1')">
+        ❯
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- SECOND SECTION -->
+
+  <section class="product-slider-section">
+
+    <h2>Best Sellers in Sports & Outdoors</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider2')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider2">
+
+        <img src="./f6.jpg" alt="">
+        <img src="./toy2.jpg" alt="">
+        <img src="./jet2.png" alt="">
+        <img src="./jet1.png" alt="">
+        <img src="./toy1.jpg" alt="">
+        <img src="./jet5.jpg" alt="">
+        <img src="./toy3.jpg" alt="">
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider2')">
+        ❯
+      </button>
+
+    </div>
+
+  </section>
+
+  <section class="category-section">
+
+    <!-- CARD 1 -->
+
+    <div class="category-card">
+
+      <h2>Gear up to get fit</h2>
+
+      <div class="category-grid">
+
+        <div>f
+          <img src="./f4.jpg" alt="">
+          <p>Clothing</p>
+        </div>
+
+        <div>
+          <img src="./f1.jpg" alt="">
+          <p>Trackers</p>
+        </div>
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>Equipment</p>
+        </div>
+
+        <div>
+          <img src="./f3.jpg" alt="">
+          <p>Deals</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="category-card">
+
+      <h2>Most-loved watches</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./f4.jpg" alt="">
+          <p>women</p>
+        </div>
+
+        <div>
+          <img src="./f5.jpg" alt="">
+          <p>men</p>
+        </div>
+
+        <div>
+          <img src="./gam1.jpg" alt="">
+          <p>girls</p>
+        </div>
+
+        <div>
+          <img src="./flg.jpg" alt="">
+          <p>flag</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="category-card">
+
+      <h2>level up your Pc here</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./all1.jpg" alt="">
+          <p>Loptops</p>
+        </div>
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>PCs</p>
+        </div>
+
+        <div>
+          <img src="./hard1.jpg" alt="">
+          <p>Hard Drives</p>
+        </div>
+
+        <div>
+          <img src="./gam1.jpg" alt="">
+          <p>monitors</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="category-card">
+
+      <h2>Deals on top categories</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>Books</p>
+        </div>
+
+        <div>
+          <img src="./f1.jpg" alt="">
+          <p>Fashion</p>
+        </div>
+
+        <div>
+          <img src="./hard1.jpg" alt="">
+          <p>PC</p>
+        </div>
+
+        <div>
+          <img src="./f4.jpg" alt="">
+          <p>Beauty</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+  </section>
+
+  <section class="product-slider-section">
+
+    <h2>Popular products in Beauty internationally</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider2')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider2">
+
+        <img src="./jet1.png" alt="">
+        <img src="./kic1.jpg" alt="">
+        <img src="./f6.jpg" alt="">
+        <img src="./jet5.jpg" alt="">
+        <img src="./toy2.jpg" alt="">
+        <img src="./jet2.png" alt="">
+        <img src="./kic1.jpg" alt="">
+        <img src="./f6.jpg" alt="">
+        <img src="./jet5.jpg" alt="">
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider2')">
+        ❯
+      </button>
+
+    </div>
+
+  </section>
+
+  <section class="product-slider-section">
+
+    <h2>Best Sellers in Home & Kitchen</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider2')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider2">
+
+        <img src="./f1.jpg" alt="">
+        <img src="./kic2.jpg" alt="">
+        <img src="./hard1.jpg" alt="">
+        <img src="./gam1.jpg" alt="">
+        <img src="./f3.jpg" alt="">
+        <img src="./f2.jpg" alt="">
+        <img src="./f1.jpg" alt="">
+        <img src="./kic2.jpg" alt="">
+        <img src="./hard1.jpg" alt="">
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider2')">
+        ❯
+      </button>
+
+    </div>
+
+  </section>
+
+  <section class="category-section">
+
+    <!-- CARD 1 -->
+
+    <div class="category-card">
+
+      <h2>Level up your gaming</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./all1.jpg" alt="">
+          <p>PC gaming</p>
+        </div>
+
+        <div>
+          <img src="./gam1.jpg" alt="">
+          <p>Xbox</p>
+        </div>
+
+        <div>
+          <img src="./hard1.jpg" alt="">
+          <p>PlayStation</p>
+        </div>
+
+        <div>
+          <img src="./kic2.jpg" alt="">
+          <p>Nintendo Switch</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="category-card">
+
+      <h2>Upgrade on Tech</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>PC</p>
+        </div>
+
+        <div>
+          <img src="./f5.jpg" alt="">
+          <p>Wireless</p>
+        </div>
+
+        <div>
+          <img src="./flg.jpg" alt="">
+          <p>Software</p>
+        </div>
+
+        <div>
+          <img src="./f1.jpg" alt="">
+          <p>Home entertainment</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="category-card">
+
+      <h2>Finds for Home</h2>
+
+      <div class="category-grid">
+
+        <div>
+
+          <img src="./f2.jpg" alt="">
+          <p>Kitchen</p>
+        </div>
+
+        <div>
+          <img src="./f3.jpg" alt="">
+          <p>Home Decor</p>
+        </div>
+
+        <div>
+          <img src="./f5.jpg" alt="">
+          <p> Dining</p>
+        </div>
+
+        <div>
+          <img src="./f1.jpg" alt="">
+          <p>Smart Home</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="category-card">
+
+      <h2>Score the top PCs & Accessories</h2>
+
+      <div class="category-grid">
+
+        <div>
+          <img src="./hard1.jpg" alt="">
+          <p>Desktops</p>
+        </div>
+
+        <div>
+          <img src="./all1.jpg" alt="">
+          <p>Laptops</p>
+        </div>
+
+        <div>
+          <img src="./f1.jpg" alt="">
+          <p>Hard Drives</p>
+        </div>
+
+        <div>
+          <img src="./h1.jpg" alt="">
+          <p>PC Accessories</p>
+        </div>
+
+      </div>
+
+      <a href="#">Discover more</a>
+
+    </div>
+
+  </section>
+
+  <section class="product-slider-section">
+
+    <h2>Best Sellers in Kitchen & Dining</h2>
+
+    <div class="slider-container">
+
+      <button class="slider-btn left-btn" onclick="moveSlide(-1,'slider2')">
+        ❮
+      </button>
+
+      <div class="product-slider" id="slider2">
+
+        <img src="./f1.jpg" alt="">
+        <img src="./kic2.jpg" alt="">
+        <img src="./hard1.jpg" alt="">
+        <img src="./gam1.jpg" alt="">
+        <img src="./f3.jpg" alt="">
+        <img src="./f2.jpg" alt="">
+        <img src="./f4.jpg" alt="">
+        <img src="./f5.jpg" alt="">
+        <img src="./all1.jpg" alt="">
+
+      </div>
+
+      <button class="slider-btn right-btn" onclick="moveSlide(1,'slider2')">
+        ❯
+      </button>
+
+    </div>
+
+    <!-- SIGN IN SECTION -->
+
+    <section class="signin-section">
+
+      <div class="signin-box">
+
+        <h1>See personalized recommendations</h1>
+        
+        <input type="checkbox" id="popup">
+
+        <label for="popup" class="signin-btn">
+          Sign in
+        </label>
+
+        <p>
+          New customer?
+          <a href="#">Start here.</a>
+        </p>
+
+        <!-- DIALOG BOX -->
+
+        <div class="vip-dialog">
+
+          <h2> VIP ACCESS</h2>
+
+          <p>
+            Welcome Back VIP User <br>
+            Enjoy Premium Amazon Shopping Experience 🛒
+          </p>
+
+          <!-- CLOSE BUTTON -->
+
+          <label for="popup" class="close-btn">
+            Close
+          </label>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      Back to top
+    </div>
+
+    <!-- Foote -->
+
+    <div class="footer-main">
+
+      <div class="footer-col">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">About Amazon</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Amazon Devices</a></li>
+          <li><a href="#">Amazon Science</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Make Money with Us</h4>
+        <ul>
+          <li><a href="#">Sell products on Amazon</a></li>
+          <li><a href="#">Sell on Amazon Business</a></li>
+          <li><a href="#">Sell apps on Amazon</a></li>
+          <li><a href="#">Become an Affiliate</a></li>
+          <li><a href="#">Advertise Your Products</a></li>
+          <li><a href="#">Self-Publish with Us</a></li>
+          <li><a href="#">Host an Amazon Hub</a></li>
+          <li><a href="#">› See More Make Money with Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Amazon Payment Products</h4>
+        <ul>
+          <li><a href="#">Amazon Business Card</a></li>
+          <li><a href="#">Shop with Points</a></li>
+          <li><a href="#">Reload Your Balance</a></li>
+          <li><a href="#">Amazon Currency Converter</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Let Us Help You</h4>
+        <ul>
+          <li><a href="#">Amazon and COVID-19</a></li>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">Your Orders</a></li>
+          <li><a href="#">Shipping Rates &amp; Policies</a></li>
+          <li><a href="#">Returns &amp; Replacements</a></li>
+          <li><a href="#">Manage Your Content and Devices</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <div class="footer-logo-text">amazon<span>.</span></div>
+
+      <div class="footer-selects">
+        <div class="select-wrapper">
+          <select>
+            <option>🌐 English</option>
+            <option>اردو Urdu</option>
+          </select>
+        </div>
+        <div class="select-wrapper">
+          <select>
+            <option>PKR Pakistani Rupee</option>
+            <option>USD US Dollar</option>
+          </select>
+        </div>
+        <div class="select-wrapper">
+          <select>
+            <option>🇺🇸 United States</option>
+            <option>🇵🇰 Pakistan</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brands Grid -->
+    <div class="footer-brands">
+
+      <!-- Row 1 -->
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Amazon Music</div>
+          <div class="brand-desc">Stream millions of songs</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Amazon Ads</div>
+          <div class="brand-desc">Reach customers wherever they spend their time</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">6pm</div>
+          <div class="brand-desc">Score deals on fashion brands</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">AbeBooks</div>
+          <div class="brand-desc">Books, art &amp; collectibles</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">ACX</div>
+          <div class="brand-desc">Audiobook Publishing Made Easy</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Sell on Amazon</div>
+          <div class="brand-desc">Start a Selling Account</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Veeqo</div>
+          <div class="brand-desc">Shipping Software Inventory Management</div>
+        </a>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Amazon Business</div>
+          <div class="brand-desc">Everything For Your Business</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">AmazonGlobal</div>
+          <div class="brand-desc">Ship Orders Internationally</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name underlined">Amazon Web Services</div>
+          <div class="brand-desc">Scalable Cloud Computing Services</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Audible</div>
+          <div class="brand-desc">Listen to Books &amp; Original Audio Performances</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Box Office Mojo</div>
+          <div class="brand-desc">Find Movie Box Office Data</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Goodreads</div>
+          <div class="brand-desc">Book reviews &amp; recommendations</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">IMDb</div>
+          <div class="brand-desc">Movies, TV &amp; Celebrities</div>
+        </a>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">IMDbPro</div>
+          <div class="brand-desc">Get Info Entertainment Professionals Need</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Kindle Direct Publishing</div>
+          <div class="brand-desc">Indie Digital &amp; Print Publishing Made Easy</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Prime Video Direct</div>
+          <div class="brand-desc">Video Distribution Made Easy</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Shopbop</div>
+          <div class="brand-desc">Designer Fashion Brands</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Woot!</div>
+          <div class="brand-desc">Deals and Shenanigans</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Zappos</div>
+          <div class="brand-desc">Shoes &amp; Clothing</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Ring</div>
+          <div class="brand-desc">Smart Home Security Systems</div>
+        </a>
+      </div>
+
+      <!-- Row 4 (partial - only cols 2-5) -->
+      <div class="brand-item" style="grid-column: 2;">
+        <a href="#">
+          <div class="brand-name">eero WiFi</div>
+          <div class="brand-desc">Stream 4K Video in Every Room</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Blink</div>
+          <div class="brand-desc">Smart Security for Every Home</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">Neighbors App</div>
+          <div class="brand-desc">Real-Time Crime &amp; Safety Alerts</div>
+        </a>
+      </div>
+
+      <div class="brand-item">
+        <a href="#">
+          <div class="brand-name">PillPack</div>
+          <div class="brand-desc">Pharmacy Simplified</div>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-links">
+        <a href="#">Conditions of Use</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Consumer Health Data Privacy Disclosure</a>
+        <a href="#">
+          Your Ads Privacy Choices
+          <span class="privacy-toggle">
+            <span>CA</span>
+            <span class="x-mark">✕</span>
+          </span>
+        </a>
+      </div>
+      <div class="footer-bottom-copy">
+        &copy; 1996-2026, Amazon.com, Inc. or its affiliates
+      </div>
+    </div>
+
+</body>
+
+</html>
